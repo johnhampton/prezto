@@ -22,3 +22,6 @@ export PATH="$PATH:$GOROOT/libexec/bin"
 
 # AWS completion
 source "/usr/local/bin/aws_zsh_completer.sh"
+
+# direnv
+eval "$(direnv hook zsh)"
