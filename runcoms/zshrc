@@ -23,5 +23,11 @@ export PATH="$PATH:$GOROOT/libexec/bin"
 # AWS completion
 source "/usr/local/bin/aws_zsh_completer.sh"
 
+# Aliases
+alias ecrlogin='aws-vault exec -n tan-stage -- aws ecr get-login --no-include-email --registry-ids 931640994161 436889630604 | /bin/sh'
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # direnv
 eval "$(direnv hook zsh)"
