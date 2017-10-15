@@ -13,6 +13,7 @@ fi
 # Customize to your needs...
 export EDITOR=nvim
 export VISUAL=nvim
+export HOMEBREW_GITHUB_API_TOKEN=0f435993071d9ada585c7c614b9ecb5b3426ff1e
 
 # Go
 export GOPATH="$HOME/go"
@@ -21,7 +22,7 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/libexec/bin"
 
 # AWS completion
-source "/usr/local/bin/aws_zsh_completer.sh"
+source "/usr/local/share/zsh/site-functions/aws_zsh_completer.sh"
 
 # Aliases
 alias ecrlogin='aws-vault exec -n tan-stage -- aws ecr get-login --no-include-email --registry-ids 931640994161 436889630604 | /bin/sh'
