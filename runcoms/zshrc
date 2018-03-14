@@ -21,14 +21,18 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/libexec/bin"
 
-# AWS completion
-source "/usr/local/share/zsh/site-functions/aws_zsh_completer.sh"
-
 # Aliases
 alias ecrlogin='aws-vault exec -n tan-stage -- aws ecr get-login --no-include-email --registry-ids 931640994161 436889630604 | /bin/sh'
+function hc() {
+  hub clone topagentnetwork/$1 $2
+}
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# AWS completion
+# source "/usr/local/share/zsh/site-functions/aws_zsh_completer.sh"
+# complete -C aws_completer aws-vault
 
 # aws-vault
 eval "$(aws-vault --completion-script-zsh)"
@@ -40,7 +44,11 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 # helm
 if which helm > /dev/null; then source <(helm completion zsh); fi
 
+# rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Postgresql
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
 # direnv
 eval "$(direnv hook zsh)"
