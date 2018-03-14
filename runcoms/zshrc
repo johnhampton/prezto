@@ -16,7 +16,7 @@ export VISUAL=nvim
 export HOMEBREW_GITHUB_API_TOKEN=0f435993071d9ada585c7c614b9ecb5b3426ff1e
 
 # Go
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/Projects/go"
 export GOROOT=/usr/local/opt/go/libexec
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/libexec/bin"
@@ -36,6 +36,9 @@ eval "$(aws-vault --completion-script-zsh)"
 # gcloud
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# helm
+if which helm > /dev/null; then source <(helm completion zsh); fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
