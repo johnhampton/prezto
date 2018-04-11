@@ -18,13 +18,24 @@ export HOMEBREW_GITHUB_API_TOKEN=0f435993071d9ada585c7c614b9ecb5b3426ff1e
 # Go
 export GOPATH="$HOME/Projects/go"
 export GOROOT=/usr/local/opt/go/libexec
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:${GOPATH//://bin:}/bin"
 export PATH="$PATH:$GOROOT/libexec/bin"
 
 # Aliases
 alias ecrlogin='aws-vault exec -n tan-stage -- aws ecr get-login --no-include-email --registry-ids 931640994161 436889630604 | /bin/sh'
 function hc() {
   hub clone topagentnetwork/$1 $2
+}
+
+function lngo() {
+  DIRNAME="${PWD##*/}"
+  GODIR="${GOPATH%%:*}/src/github.com/topagentnetwork"
+
+  echo "making ${GODIR}"
+  mkdir -p "${GODIR}"
+  TARGET="${GODIR}/${DIRNAME}" 
+  echo "linking ${PWD} to ${TARGET}"
+  ln -snf "${PWD}" "${TARGET}"
 }
 
 # fzf
