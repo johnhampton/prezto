@@ -33,9 +33,17 @@ function lngo() {
 
   echo "making ${GODIR}"
   mkdir -p "${GODIR}"
-  TARGET="${GODIR}/${DIRNAME}" 
+  TARGET="${GODIR}/${DIRNAME}"
   echo "linking ${PWD} to ${TARGET}"
   ln -snf "${PWD}" "${TARGET}"
+}
+
+function cdgo() {
+  DIRNAME="${PWD##*/}"
+  GODIR="${GOPATH%%:*}/src/github.com/topagentnetwork"
+  TARGET="${GODIR}/${DIRNAME}"
+
+  cd ${TARGET}
 }
 
 # fzf
