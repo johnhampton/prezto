@@ -21,30 +21,36 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH="$PATH:${GOPATH//://bin:}/bin"
 export PATH="$PATH:$GOROOT/libexec/bin"
 
+# Rust
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # Aliases
 alias ecrlogin='aws-vault exec -n tan-stage -- aws ecr get-login --no-include-email --registry-ids 931640994161 436889630604 | /bin/sh'
 function hc() {
   hub clone topagentnetwork/$1 $2
 }
 
-function lngo() {
-  DIRNAME="${PWD##*/}"
-  GODIR="${GOPATH%%:*}/src/github.com/topagentnetwork"
+alias proddb='cloud_sql_proxy --instances="tan-ng-prod:us-west1:prod-master-database=tcp:5434" --dir=/tmp'
+alias stagedb='cloud_sql_proxy --instances="tan-ng:us-west1:master-database=tcp:5433" --dir=/tmp'
 
-  echo "making ${GODIR}"
-  mkdir -p "${GODIR}"
-  TARGET="${GODIR}/${DIRNAME}"
-  echo "linking ${PWD} to ${TARGET}"
-  ln -snf "${PWD}" "${TARGET}"
-}
+# function lngo() {
+#   DIRNAME="${PWD##*/}"
+#   GODIR="${GOPATH%%:*}/src/github.com/topagentnetwork"
 
-function cdgo() {
-  DIRNAME="${PWD##*/}"
-  GODIR="${GOPATH%%:*}/src/github.com/topagentnetwork"
-  TARGET="${GODIR}/${DIRNAME}"
+#   echo "making ${GODIR}"
+#   mkdir -p "${GODIR}"
+#   TARGET="${GODIR}/${DIRNAME}"
+#   echo "linking ${PWD} to ${TARGET}"
+#   ln -snf "${PWD}" "${TARGET}"
+# }
 
-  cd ${TARGET}
-}
+# function cdgo() {
+#   DIRNAME="${PWD##*/}"
+#   GODIR="${GOPATH%%:*}/src/github.com/topagentnetwork"
+#   TARGET="${GODIR}/${DIRNAME}"
+
+#   cd ${TARGET}
+# }
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
