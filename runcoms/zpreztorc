@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'git' \
   'docker' \
+  'ocaml' \
   'prompt'
 
 #
