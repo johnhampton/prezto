@@ -44,6 +44,7 @@ zstyle ':prezto:load' pmodule \
   "autosuggestions" \
   "direnv" \
   "git" \
+  "gpg" \
   "homebrew" \
   "node" \
   "tmux" \
