@@ -17,12 +17,7 @@ if [[ -z "${CLOUDSDK_HOME}" ]]; then
 fi
 
 if (( ${+CLOUDSDK_HOME} )); then
-  if (( ! $+commands[gcloud] )); then
-    # Only source this if GCloud isn't already on the path
-    if [[ -f "${CLOUDSDK_HOME}/path.zsh.inc" ]]; then
-      source "${CLOUDSDK_HOME}/path.zsh.inc"
-    fi
-  fi
+  source "${CLOUDSDK_HOME}/path.zsh.inc"
   source "${CLOUDSDK_HOME}/completion.zsh.inc"
   export CLOUDSDK_HOME
 fi
