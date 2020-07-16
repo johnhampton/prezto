@@ -49,6 +49,8 @@ zstyle ':prezto:load' pmodule \
   "homebrew" \
   "node" \
   "ocaml" \
+  "rust" \
+  "stack" \
   "tmux" \
   'prompt'
 
