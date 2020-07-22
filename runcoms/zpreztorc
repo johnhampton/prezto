@@ -45,6 +45,7 @@ zstyle ':prezto:load' pmodule \
   "direnv" \
   "gcloud" \
   "git" \
+  "go" \
   "gpg" \
   "homebrew" \
   "node" \
