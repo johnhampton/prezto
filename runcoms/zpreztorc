@@ -44,6 +44,7 @@ zstyle ':prezto:load' pmodule \
   "autosuggestions" \
   "direnv" \
   "gcloud" \
+  "ghcup" \
   "git" \
   "go" \
   "gpg" \
